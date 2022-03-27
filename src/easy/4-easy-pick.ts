@@ -51,6 +51,7 @@ type MyPick<T, K extends keyof T> = {
 export type cases = [
   Expect<Equal<Expected1, MyPick<Todo, 'title'>>>,
   Expect<Equal<Expected2, MyPick<Todo, 'title' | 'completed'>>>,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
   MyPick<Todo, 'title' | 'completed' | 'invalid'>,
 ]
