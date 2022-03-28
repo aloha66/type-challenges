@@ -33,7 +33,7 @@
  * 只读类型
  * 解题思路 可想象用js模拟
  * 1. 返回一个对象
- * 2. 循环遍历T [P in K] mapped
+ * 2. 循环遍历T [P in keyof K] mapped
  * 3. 加上readonly
  * 4. 重新赋值给新对象
  */
