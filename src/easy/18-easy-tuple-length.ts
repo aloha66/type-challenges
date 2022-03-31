@@ -26,7 +26,6 @@
  * 2. 需要搞清楚是在定义泛型的时候做约束（左边）还是在执行代码里面做约束（右边）
  */
 
-
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
 
