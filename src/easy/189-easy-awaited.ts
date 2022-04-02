@@ -12,11 +12,10 @@
   > View on GitHub: https://tsch.js.org/189
 */
 
-/* _____________ Your Code Here _____________ */
-
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
 
+/* _____________ Your Code Here _____________ */
 type MyAwaited<T> = T extends Promise<infer V>? MyAwaited<V>: T
 
 type X = Promise<string>
