@@ -33,18 +33,26 @@ import type { Equal, Expect } from '@type-challenges/utils'
 
 /* _____________ Your Code Here _____________ */
 
-// todo 写注释
+/**
+ * 类别：提取
+ * Omit 移除自己不需要的字段，生成一个新的类型
+ */
+
+/**
+ * 1. 在T中过滤掉不需要的key
+ * 2. 得到新key
+ * 3. 再组装到新对象
+ */
 type MyExclude<T, K> = T extends K ? never : T
-type MyOmit<T, K extends keyof T> = {
-  [P in MyExclude<keyof T, K>]: T[P]
-}
+
+type MyOmit<T, K extends keyof T> = { [P in MyExclude<keyof T, K>]: T[P] }
 
 export type cases = [
   Expect<Equal<Expected1, MyOmit<Todo, 'description'>>>,
   Expect<Equal<Expected2, MyOmit<Todo, 'description' | 'completed'>>>,
 ]
 
-// @ts-expect-error
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type error = MyOmit<Todo, 'description' | 'invalid'>
 
 interface Todo {

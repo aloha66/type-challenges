@@ -28,6 +28,11 @@
 
   > View on GitHub: https://tsch.js.org/4
 */
+/**
+ * 类别：提取
+ * pick 保留自己需要的字段
+ * Pick<T,k> 从T中找出符合k字段的内容，生成一个新的类型
+ */
 
 /**
  * 知识点
