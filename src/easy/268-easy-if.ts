@@ -17,17 +17,24 @@
   > View on GitHub: https://tsch.js.org/268
 */
 
+/**
+ * 知识点
+ * 1. 类型兼容性
+ * https://www.typescriptlang.org/docs/handbook/type-compatibility.html
+ */
+
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
 
 /* _____________ Your Code Here _____________ */
-type If<C, T, F> = C extends true?T:F
+type If<C extends boolean, T, F> = C extends true ? T : F
 
 export type cases = [
   Expect<Equal<If<true, 'a', 'b'>, 'a'>>,
   Expect<Equal<If<false, 'a', 2>, 2>>,
 ]
 
+// @ts-expect-error
 export type error = If<null, 'a', 'b'>
 
 /* _____________ Further Steps _____________ */
