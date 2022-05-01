@@ -12,11 +12,20 @@
   > View on GitHub: https://tsch.js.org/189
 */
 
+/**
+ * 知识点
+ * 1. 提取一部分内容使用inter X
+ * 2. inter只能在条件类型中使用(extends)
+ * 2. 对不关心的内容，返回never
+ */
+
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
 
 /* _____________ Your Code Here _____________ */
-type MyAwaited<T> = T extends Promise<infer V>? MyAwaited<V>: T
+type MyAwaited<T extends Promise<unknown>> = T extends Promise<infer V>
+  ? V extends Promise<unknown> ? MyAwaited<V> : V
+  : never
 
 type X = Promise<string>
 type Y = Promise<{ field: number }>
